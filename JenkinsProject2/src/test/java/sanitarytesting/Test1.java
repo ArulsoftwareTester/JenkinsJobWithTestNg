@@ -35,7 +35,7 @@ public class Test1 {
 		WebDriver driver = new ChromeDriver(chromeOptions);
 		driver.manage().window().maximize();
 		
-	
+		System.out.println("Selenium");
 		Assert.assertFalse(logEntries.getAll().isEmpty());
 		driver.close();
 
