@@ -2,6 +2,7 @@ package sanitarytesting;
 
 import java.util.logging.Level;
 
+import org.jspecify.annotations.Nullable;
 import org.junit.Assert;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
@@ -45,6 +46,8 @@ public class Test1 {
 	private void m2() {
 
 		driver.get("https://www.facebook.com/");
+		String title = driver.getTitle();
+		org.testng.Assert.assertEquals(title, "Arul");
 
 	}
 
