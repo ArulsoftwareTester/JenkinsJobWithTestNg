@@ -25,8 +25,14 @@ public class ExtentNew extends BaseReportClass {
 
 	@BeforeClass
 	private void before() {
-		File file = new File(
-				"C:\\Users\\selvamanid\\Documents\\JenkinsJobWithTestNg\\JenkinsProject2\\src\\test\\resources\\arul.html");
+		String reportFolderPath = System.getProperty("user.dir") + "\\Reports\\";
+		File directory = new File(reportFolderPath);
+
+		if (!directory.exists()) {
+			directory.mkdirs();
+		}
+
+		File file = new File(reportFolderPath + "\\arul.html");
 		ExtentSparkReporter report = new ExtentSparkReporter(file);
 
 		report.config().setReportName("AutomationResults");
@@ -51,18 +57,16 @@ public class ExtentNew extends BaseReportClass {
 
 		driver.manage().window().maximize();
 		driver.get("https://www.facebook.com/");
-		
+
 		String pathString = BaseReportClass.takeScreenshot("PageIsloaded");
-		
-        test.log(Status.PASS,MediaEntityBuilder.createScreenCaptureFromBase64String(pathString).build());
 
-      
-
+		test.log(Status.PASS, MediaEntityBuilder.createScreenCaptureFromBase64String(pathString).build());
 
 		driver.findElement(By.id("email")).sendKeys("Arul");
 		Thread.sleep(3000);
-		test.log(Status.INFO, MediaEntityBuilder.createScreenCaptureFromBase64String(pathString, "value enterd").build());
-		
+		test.log(Status.INFO,
+				MediaEntityBuilder.createScreenCaptureFromBase64String(pathString, "value enterd").build());
+
 		driver.findElement(By.id("pass")).sendKeys("mani");
 		// driver.findElement(By.name("login")).click();
 		extent.flush();

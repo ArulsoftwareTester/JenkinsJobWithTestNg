@@ -47,7 +47,7 @@ public class Test1 {
 
 		driver.get("https://www.facebook.com/");
 		String title = driver.getTitle();
-		org.testng.Assert.assertEquals(title, "Arul");
+		Assert.assertEquals(title, "Arul");
 
 	}
 
