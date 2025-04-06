@@ -5,6 +5,7 @@
     <classes>
       <class name="sanitarytesting.Test2"/>
       <class name="sanitarytesting.Test1"/>
+      <class name="log4j.ExtentNew"/>
       <class name="sanitarytesting.Test3"/>
     </classes>
   </test> <!-- Test -->
